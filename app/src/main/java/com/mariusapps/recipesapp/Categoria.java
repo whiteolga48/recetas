@@ -1,4 +1,4 @@
 package com.mariusapps.recipesapp;
 
-public class Categorias {
+public class Categoria {
 }
