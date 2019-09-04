@@ -1,4 +1,4 @@
-package com.mariusapps.recipesapp;
+package com.mariusapps.recipesapp.model;
 
 public enum CategoriaReceta {
 

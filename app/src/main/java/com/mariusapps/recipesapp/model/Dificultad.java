@@ -1,7 +1,7 @@
-package com.mariusapps.recipesapp;
+package com.mariusapps.recipesapp.model;
 
 public enum Dificultad {
 
-    ALTA, BAJA, MEDIA,
+    ALTA, BAJA, MEDIA;
 
 }
