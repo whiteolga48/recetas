@@ -1,7 +1,4 @@
 package com.mariusapps.recipesapp;
 
-public class Paso {
-
-
-
+public interface JsonPlaceHolderApi {
 }

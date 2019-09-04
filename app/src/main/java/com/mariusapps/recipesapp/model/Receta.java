@@ -14,7 +14,7 @@ public class Receta {
     private Temperatura temperatura;
     private Dificultad dificultad;
     private double coste;
-   // private List<Paso> pasos;
+    private List<String> pasos;
 
 
 
