@@ -1,9 +1,8 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardView.Light"
@@ -15,86 +14,56 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <ImageButton
-            android:id="@+id/favorite_button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:contentDescription="TODO"
-            android:padding="12dp"
-            app:srcCompat="@drawable/_ic_favorite_black_24dp"
-            tools:layout_editor_absoluteX="2dp"
-            tools:layout_editor_absoluteY="222dp" />
-
-        <ImageButton
-            android:id="@+id/favorite_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:contentDescription="TODO"
-            android:padding="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/bookmark_button"
-            app:layout_constraintTop_toTopOf="@+id/bookmark_button"
-            app:srcCompat="@drawable/_ic_favorite_black_24dp" />
-
-        <ImageButton
-            android:id="@+id/bookmark_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00FFFFFF"
-            android:contentDescription="TODO"
-            android:padding="12dp"
-            app:layout_constraintEnd_toStartOf="@+id/share_button"
-            app:layout_constraintTop_toTopOf="@+id/share_button"
-            app:srcCompat="@drawable/ic_bookmark_black_24dp" />
-
-        <ImageButton
-            android:id="@+id/share_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:background="#00FFFFFF"
-            android:padding="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/media_image"
-            app:srcCompat="@drawable/ic_share_black_24dp" />
 
         <ImageView
-            android:id="@+id/media_image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/conejoalacreveza"
-            android:contentDescription="TODO"
+            android:id="@+id/iv_imagen_receta"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/share_button"
-            app:layout_constraintDimensionRatio="H,16:9"
+            android:src="@drawable/conejoalacreveza"
+            app:layout_constraintDimensionRatio="H,1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="12dp"
-            android:shadowColor="#00882121"
-            android:text="Conejo a la cerveza"
-
-            android:textColor="ffffff"
-            android:textSize="36sp"
-            app:layout_constraintBottom_toBottomOf="@+id/media_image"
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="#7F000000"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <Space
+            android:id="@+id/top_space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_titulo_receta"/>
+
+
+        <TextView
+            android:id="@+id/tv_titulo_receta"
+            android:layout_width="384dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:text="Conejo a la cerveza"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="#FFFFFFFF"
+            android:textSize="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view"
+            app:layout_constraintVertical_bias="0.304" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
