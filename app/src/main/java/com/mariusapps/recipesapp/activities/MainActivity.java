@@ -4,57 +4,55 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.mariusapps.recipesapp.AdapterRecyclerReceta;
+import com.mariusapps.recipesapp.Adapter.CustomAdapter;
 import com.mariusapps.recipesapp.ApiInterface;
 import com.mariusapps.recipesapp.R;
 import com.mariusapps.recipesapp.model.Ingrediente;
 import com.mariusapps.recipesapp.model.Receta;
 import com.mariusapps.recipesapp.retrofit.RetrofitClientInstance;
-
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-
     private ApiInterface apiInterface;
     private static final String TAG = "***";
-    Button button ;
-    private AdapterRecyclerReceta adapterReceta;
-    List<Receta>recetaList;
+    private Button button ;
+    private CustomAdapter adapter;
+    private RecyclerView recyclerView;
+    private ProgressDialog progressDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button = findViewById(R.id.button1);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        adapterReceta = new AdapterRecyclerReceta(getApplicationContext(),recetaList);
-        recyclerView.setAdapter(adapterReceta);
 
+        progressDialog = new ProgressDialog(MainActivity.this);
+        progressDialog.setMessage("Cargando.....");
+        progressDialog.show();
+
+        getRecetas();
+
+        button = findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               // getIngredientes();
 
-                // getIngredientes();
-
-                 getRecetas();
                //getIngredienteById((long) 10);
                //getRecetaById(13L);
             }
         });
     }
-
     private void getRecetaById(Long i){
 
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
@@ -163,30 +161,24 @@ public class MainActivity extends AppCompatActivity {
 
         }
     private void getRecetas(){
-
-         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
-
+       apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
         Call <List<Receta>> call = apiInterface.getRecetas();
         call.enqueue(new Callback<List<Receta>>() {
             @Override
             public void onResponse(Call<List<Receta>> call, Response<List<Receta>> response) {
-
                 if (!response.isSuccessful()){
-
-
                     Log.d(TAG, "onResponse: "+ response.code());
                     return;
+
                 }
-
-                List<Receta> recetas = response.body();
-                adapterReceta.setTitleRecetas(recetaList);
-
-                Log.d(TAG,recetas.toString());
-
-//                for (Receta receta: recetas){
+                progressDialog.dismiss();
+                generateList(response.body());
+//                List<Receta> recetas = response.body();
+//
+//                Log.d(TAG,recetas.toString());
+//              for (Receta receta: recetas){
 //
 //                    Log.d(TAG, "onResponse: "+response.body());
-//
 //                    String content = "" + "\n";
 //                    content += "Nombre: " + receta.getNombre()+"\n";
 //                    content += "Id : " + receta.getId() + "\n";
@@ -199,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Receta>> call, Throwable t) {
-
                 Log.d("**",t.getMessage());
 
             }
@@ -207,9 +198,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void generateList(List<Receta> listaRecetas) {
+
+        recyclerView = findViewById(R.id.recyclerView);
+        adapter = new CustomAdapter(this, listaRecetas);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
 
 
-
+    }
 
 
 }
