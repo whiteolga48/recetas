@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-    private static final String URL = "http://10.0.2.2:8081/";
+    private static final String URL = "https://olgarecetas.herokuapp.com";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

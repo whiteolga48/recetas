@@ -5,6 +5,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,17 +18,22 @@ import com.mariusapps.recipesapp.model.Receta;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> implements Filterable {
+
 
 
     private List<Receta> datalist;
+    private List<Receta> recetaListFull;
     private Context context;
 
     public CustomAdapter(Context context, List<Receta> datalist ) {
         this.datalist = datalist;
         this.context = context;
+        recetaListFull = new ArrayList<>(datalist);
+
     }
 
     @NonNull
@@ -44,7 +51,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
         holder.txt_Tittle.setText(datalist.get(position).getNombre());
 
-        String URLFoto = "http://10.0.2.2:8081/recetas/image/" + datalist.get(position).getId();
+        String URLFoto = "https://olgarecetas.herokuapp.com/recetas/image/" + datalist.get(position).getId();
 
         Log.d("*****", URLFoto);
 
@@ -58,6 +65,49 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public int getItemCount() {
         return datalist.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return recetasFiltro;
+    }
+
+    private Filter recetasFiltro = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+
+            List<Receta> listaFiltrada = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+
+                listaFiltrada.addAll(recetaListFull);
+
+            } else {
+
+                String filteredPattern = constraint.toString().toLowerCase().trim();
+                for (Receta receta : recetaListFull) {
+                    if (receta.getNombre().toLowerCase().contains(filteredPattern)) {
+                        listaFiltrada.add(receta);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = listaFiltrada;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+
+            datalist.clear();
+            datalist.addAll((List) results.values);
+            notifyDataSetChanged();
+
+        }
+    };
+
 
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
