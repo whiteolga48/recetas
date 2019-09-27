@@ -110,7 +110,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
 
 
-    public class CustomViewHolder extends RecyclerView.ViewHolder {
+    public class CustomViewHolder extends RecyclerView.ViewHolder  {
 
         public final View mView;
         private TextView txt_Tittle;
@@ -120,9 +120,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             mView=itemView;
+//            itemView.setOnClickListener(this);
             txt_Tittle = mView.findViewById(R.id.tv_titulo_receta);
             imageRecipe = mView.findViewById(R.id.iv_imagen_receta);
 
         }
+
+//        @Override
+//        public void onClick(View v) {
+//
+//            onclicklistner.onItemClick(getAdapterPosition(), v);
+//
+//        }
     }
 }
