@@ -21,10 +21,10 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> implements Filterable {
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> implements Filterable, View.OnClickListener{
 
 
-
+    private View.OnClickListener listener;
     private List<Receta> datalist;
     private List<Receta> recetaListFull;
     private Context context;
@@ -42,6 +42,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.card_view_item,parent,false);
+        view.setOnClickListener(this);
 
         return new CustomViewHolder(view);
     }
@@ -59,11 +60,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                 .load(URLFoto)
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.imageRecipe);
-   }
+    }
 
     @Override
     public int getItemCount() {
         return datalist.size();
+    }
+
+    public void setOnClickListener (View.OnClickListener listener){
+
+        this.listener=listener;
+
     }
 
     @Override
@@ -108,6 +115,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         }
     };
 
+    @Override
+    public void onClick(View v) {
+
+        if(listener!=null){
+
+            listener.onClick(v);
+
+        }
+
+
+    }
 
 
     public class CustomViewHolder extends RecyclerView.ViewHolder  {

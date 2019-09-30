@@ -30,7 +30,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     private ApiInterface apiInterface;
     private static final String TAG = "***";
-    private Button button ;
+    private Button button;
     private CustomAdapter adapter;
     private RecyclerView recyclerView;
     private ProgressDialog progressDialog;
@@ -51,78 +51,80 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // getIngredientes();
+                // getIngredientes();
 
-               //getIngredienteById((long) 10);
-               //getRecetaById(13L);
+                //getIngredienteById((long) 10);
+                //getRecetaById(13L);
             }
         });
     }
-    private void getRecetaById(Long i){
+
+    private void getRecetaById(Long i) {
 
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
 
-        Call <Receta> call = apiInterface.getRecetaById(i);
+        Call<Receta> call = apiInterface.getRecetaById(i);
         call.enqueue(new Callback<Receta>() {
             @Override
             public void onResponse(Call<Receta> call, Response<Receta> response) {
-                if (!response.isSuccessful()){
-                    Log.d("**", "onResponse: "+ response.code());
+                if (!response.isSuccessful()) {
+                    Log.d("**", "onResponse: " + response.code());
                     return;
                 }
 
                 Receta receta = response.body();
-                Log.d(TAG,receta.toString());
+                Log.d(TAG, receta.toString());
             }
 
             @Override
             public void onFailure(Call<Receta> call, Throwable t) {
-                Log.d(TAG,t.getMessage());
+                Log.d(TAG, t.getMessage());
             }
         });
     }
-    private void getIngredienteById(Long i){
 
+    private void getIngredienteById(Long i) {
 
 
         apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
-        Call <Ingrediente> call = apiInterface.getIngredientebyId(i);
+        Call<Ingrediente> call = apiInterface.getIngredientebyId(i);
         call.enqueue(new Callback<Ingrediente>() {
             @Override
             public void onResponse(Call<Ingrediente> call, Response<Ingrediente> response) {
 
-                if (!response.isSuccessful()){
+                if (!response.isSuccessful()) {
 
 
-                 Log.d("**", "onResponse: "+ response.code());
+                    Log.d("**", "onResponse: " + response.code());
                     return;
                 }
 
                 Ingrediente ingredientes = response.body();
 
-                Log.d(TAG,ingredientes.toString());
+                Log.d(TAG, ingredientes.toString());
 
             }
 
             @Override
             public void onFailure(Call<Ingrediente> call, Throwable t) {
 
-                Log.d(TAG,t.getMessage());
+                Log.d(TAG, t.getMessage());
 
 
             }
         });
 
     }
-    private void getIngredientes(){
-    apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
 
-        Call <List<Ingrediente>> call = apiInterface.getIngredientes();
+    private void getIngredientes() {
+        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
+
+        Call<List<Ingrediente>> call = apiInterface.getIngredientes();
         call.enqueue(new Callback<List<Ingrediente>>() {
             @Override
             public void onResponse(Call<List<Ingrediente>> call, Response<List<Ingrediente>> response) {
 
-                if (!response.isSuccessful()){
+                if (!response.isSuccessful()) {
 
                     Toast.makeText(MainActivity.this, "Ha fallado la respuesta", Toast.LENGTH_SHORT).show();
 //                  Log.d("**", "onResponse: "+ response.code());
@@ -131,9 +133,7 @@ public class MainActivity extends AppCompatActivity {
 
                 List<Ingrediente> ingredientes = response.body();
 
-               Log.d(TAG,ingredientes.toString());
-
-
+                Log.d(TAG, ingredientes.toString());
 
 
 //                for (Ingrediente ingrediente: ingredientes){
@@ -150,29 +150,27 @@ public class MainActivity extends AppCompatActivity {
 //                }
 
 
-
-
             }
 
             @Override
             public void onFailure(Call<List<Ingrediente>> call, Throwable t) {
 
-                    Log.d(TAG,t.getMessage());
+                Log.d(TAG, t.getMessage());
 
             }
         });
 
 
+    }
 
-        }
-    private void getRecetas(){
-       apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
-        Call <List<Receta>> call = apiInterface.getRecetas();
+    private void getRecetas() {
+        apiInterface = RetrofitClientInstance.getRetrofitInstance().create(ApiInterface.class);
+        Call<List<Receta>> call = apiInterface.getRecetas();
         call.enqueue(new Callback<List<Receta>>() {
             @Override
             public void onResponse(Call<List<Receta>> call, Response<List<Receta>> response) {
-                if (!response.isSuccessful()){
-                    Log.d(TAG, "onResponse: "+ response.code());
+                if (!response.isSuccessful()) {
+                    Log.d(TAG, "onResponse: " + response.code());
                     return;
 
                 }
@@ -196,19 +194,31 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Receta>> call, Throwable t) {
-                Log.d("**",t.getMessage());
+                Log.d("**", t.getMessage());
 
             }
         });
 
     }
 
-    private void generateList(List<Receta> listaRecetas) {
+    private void generateList(final List<Receta> listaRecetas) {
 
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new CustomAdapter(this, listaRecetas);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Toast.makeText(getApplicationContext(),"Seleccion: "
+                        + listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         recyclerView.setAdapter(adapter);
 
 
@@ -217,11 +227,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater inflater =getMenuInflater();
-        inflater.inflate(R.menu.menu_search,menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView =(SearchView) searchItem.getActionView();
+        SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
 
@@ -241,12 +251,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         return true;
-
-
-
-
-
-
 
     }
 }
