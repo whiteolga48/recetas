@@ -5,6 +5,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -215,6 +217,23 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),"Seleccion: "
                         + listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getNombre(),Toast.LENGTH_SHORT).show();
+
+//              int position = getAdapterPosition();
+
+
+                Context context = v.getContext();
+                Intent intent = new Intent(context, detalle_receta.class);
+                intent.putExtra("titulo",listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getNombre());
+                String str1 = listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getId().toString();
+                intent.putExtra("urlfoto",str1);
+
+
+                Log.d("***", str1);
+
+
+
+                Log.d(TAG, "onClick: ");
+                context.startActivity(intent);
 
             }
         });

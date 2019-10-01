@@ -7,7 +7,7 @@
     tools:context=".activities.detalle_receta">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_detalle_imagen"
         android:layout_width="324dp"
         android:layout_height="257dp"
         android:layout_marginStart="8dp"
@@ -23,11 +23,12 @@
 
     <TextView
 
+        android:id="@+id/tv_titulo_detalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_detalle_imagen" />
 </androidx.constraintlayout.widget.ConstraintLayout>
