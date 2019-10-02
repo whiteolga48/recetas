@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.mariusapps.recipesapp.Adapter.CustomAdapter;
 import com.mariusapps.recipesapp.ApiInterface;
 import com.mariusapps.recipesapp.R;
+import com.mariusapps.recipesapp.model.Dificultad;
 import com.mariusapps.recipesapp.model.Ingrediente;
 import com.mariusapps.recipesapp.model.Receta;
 import com.mariusapps.recipesapp.retrofit.RetrofitClientInstance;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     private CustomAdapter adapter;
     private RecyclerView recyclerView;
     private ProgressDialog progressDialog;
+
+
 
 
     @Override
@@ -205,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void generateList(final List<Receta> listaRecetas) {
 
+        final List<Ingrediente>listaIngredientes = null;
         recyclerView = findViewById(R.id.recyclerView);
         adapter = new CustomAdapter(this, listaRecetas);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
@@ -224,8 +228,15 @@ public class MainActivity extends AppCompatActivity {
                 Context context = v.getContext();
                 Intent intent = new Intent(context, detalle_receta.class);
                 intent.putExtra("titulo",listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getNombre());
+                intent.putExtra("dificultad", listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getDificultad().toString());
+                intent.putExtra("pasos",listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getPasos().toString());
+
                 String str1 = listaRecetas.get(recyclerView.getChildAdapterPosition(v)).getId().toString();
+
+
                 intent.putExtra("urlfoto",str1);
+                intent.putExtra("ingredientesByIdUrl",str1);
+                intent.putExtra("id",str1);
 
 
                 Log.d("***", str1);
