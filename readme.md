@@ -18,7 +18,7 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
 * Retrofit
 * GSON
 * Picasso
-* 
+
 
 ## Capturas de pantalla
 
@@ -156,5 +156,5 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTYxOTYzNDYyXX0=
+eyJoaXN0b3J5IjpbMzQwNzg5OTY4LDU2MTk2MzQ2Ml19
 -->
