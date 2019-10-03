@@ -6,12 +6,19 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
 
 ## Objetivos
 
- * Conectar la aplicación a un Backend que provee de 	recetas la app.
+ * Conectar la aplicación a un Backend que provee de 	recetas a la aplicación.
  * Mostrar lista de recetas.
  * Mostrar detalle de recetas.
  * Búsqueda de recetas por nombre.
  * Búsqueda de recetas por ingredientes.
  * Búsqueda de recetas por categoría.
+ * 
+## Objetivos Alcanzados
+ * Mostrar lista de recetas.
+ * Mostrar detalle de recetas.
+ * Búsqueda de recetas por nombre.
+		
+
 
 ## Librerias
 
@@ -156,5 +163,5 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzQwNzg5OTY4LDU2MTk2MzQ2Ml19
+eyJoaXN0b3J5IjpbLTE2MzU1NDU0NzUsNTYxOTYzNDYyXX0=
 -->
