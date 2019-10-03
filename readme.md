@@ -34,13 +34,10 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
 
 ## Capturas de pantalla
 
-![Texto alternativo](https://github.com/whiteolga48/recetas/blob/master/Screenshot_1570096460.png?raw=true)
+![Listado de recetas](https://github.com/whiteolga48/recetas/blob/master/Screenshot_1570096460.png?raw=true)
 
 
-![enter image description here](https://raw.githubusercontent.com/whiteolga48/recetas/master/Screenshot_1570096460.png?token=AJVKZOGPMBKUKFR6MJAPL2K5SXIOS)
 
-
-![fgghf](https://github.com/whiteolga48/recetas/blob/master/Screenshot_1570096460.png?raw=true)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NDYzNTgwOCwtMjYzOTk0MjcyXX0=
+eyJoaXN0b3J5IjpbOTk1MDM2OTgxLC0yNjM5OTQyNzJdfQ==
 -->
