@@ -47,18 +47,18 @@ public class detalle_receta extends AppCompatActivity {
         Log.d("**", "dificultad: " + dificultades[0].toString());
         Log.d("**", "temperatura " + temperaturas[0].toString());
         Intent intent = getIntent();
-//        String name = intent.getStringExtra("titulo");
+       String name = intent.getStringExtra("titulo");
 
         long idReceta = Long.parseLong(intent.getStringExtra("id"));
         getReceta(idReceta);
 
         Log.d("***", "Id: " + idReceta);
 
-//        String urlfoto = intent.getStringExtra("urlfoto");
-//        String dificultad = intent.getStringExtra("dificultad");
-//        String pasos = intent.getStringExtra("pasos");
+        String urlfoto = intent.getStringExtra("urlfoto");
+        String dificultad = intent.getStringExtra("dificultad");
+        String pasos = intent.getStringExtra("pasos");
 
-//        Log.d("***", "urlfoto: " + urlfoto.toString());
+        Log.d("***", "urlfoto: " + urlfoto.toString());
 
 
         dificultadDetalle = findViewById(R.id.tv_dificultad_detalle);
@@ -77,15 +77,15 @@ public class detalle_receta extends AppCompatActivity {
                 .into(imageView_Detalle);
 
 
-//        pasosDetalle.setMovementMethod(new ScrollingMovementMethod());
-//        pasosDetalle.setText(pasos);
+       pasosDetalle.setMovementMethod(new ScrollingMovementMethod());
+        pasosDetalle.setText(pasos);
 
 //        ingredientesDetalle.setMovementMethod(new ScrollingMovementMethod());
 //        ingredientesDetalle.setText(ingredientes);
 
 
-//        dificultadDetalle.setText(dificultad);
-//        tituloDetalle.setText(name);
+        dificultadDetalle.setText(dificultad);
+        tituloDetalle.setText(name);
         Log.d("****", "onCreate: " + tituloDetalle.toString());
 
 
