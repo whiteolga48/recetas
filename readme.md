@@ -13,11 +13,16 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
  * Búsqueda de recetas por ingredientes.
  * Búsqueda de recetas por categoría.
  * 
-## Objetivos Alcanzados
+## Objetivos alcanzados
+
  * Mostrar lista de recetas.
  * Mostrar detalle de recetas.
  * Búsqueda de recetas por nombre.
+ * Conectar la aplicación a un Backend que provee de 	recetas a la aplicación.
 		
+## Objetivos pendientes
+  * Búsqueda de recetas por ingredientes.
+ * Búsqueda de recetas por categoría.		
 
 
 ## Librerias
@@ -30,7 +35,7 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
 ## Capturas de pantalla
 
 ```
-![Lista de recetas](https://github.com/whiteolga48/recetas/blob/master/Screenshot_1570096460.png)
+[![Lista de recetas](https://github.com/whiteolga48/recetas/blob/master/Screenshot_1570096460.png)
 ```
 
 ```
@@ -163,5 +168,5 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MzU1NDU0NzUsNTYxOTYzNDYyXX0=
+eyJoaXN0b3J5IjpbMTUxMzcxMDM0LDU2MTk2MzQ2Ml19
 -->
