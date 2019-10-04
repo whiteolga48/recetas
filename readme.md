@@ -1,7 +1,6 @@
 # Aplicación Recetas de Cocina
 
-Aplicación Android de recetas de cocina creada en para aprender en un curso de Android
-
+Aplicación Android de recetas de cocina , que conecta con un Backend y muestra la información almacenada en la aplicación.
 
 
 ## Objetivos
@@ -51,7 +50,7 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI2Njg2OTg2LC04NjY3NzQzMCw1MDM3MD
-EzNTUsLTExNDY2ODU0OTUsOTk1MDM2OTgxLC0yNjM5OTQyNzJd
-fQ==
+eyJoaXN0b3J5IjpbLTE4NjI1NTEyOTMsNjI2Njg2OTg2LC04Nj
+Y3NzQzMCw1MDM3MDEzNTUsLTExNDY2ODU0OTUsOTk1MDM2OTgx
+LC0yNjM5OTQyNzJdfQ==
 -->
