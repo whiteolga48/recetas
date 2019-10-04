@@ -46,6 +46,6 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTAzNzAxMzU1LC0xMTQ2Njg1NDk1LDk5NT
-AzNjk4MSwtMjYzOTk0MjcyXX0=
+eyJoaXN0b3J5IjpbNjk2MTcxNzMwLDUwMzcwMTM1NSwtMTE0Nj
+Y4NTQ5NSw5OTUwMzY5ODEsLTI2Mzk5NDI3Ml19
 -->
