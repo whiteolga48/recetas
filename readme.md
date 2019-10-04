@@ -12,7 +12,8 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
  * Búsqueda de recetas por nombre.
  * Búsqueda de recetas por ingredientes.
  * Búsqueda de recetas por categoría.
- * 
+ 
+ 
 ## Objetivos alcanzados
 
  * Mostrar lista de recetas.
@@ -45,6 +46,6 @@ Aplicación Android de recetas de cocina creada en para aprender en un curso de 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDY2ODU0OTUsOTk1MDM2OTgxLC0yNj
-M5OTQyNzJdfQ==
+eyJoaXN0b3J5IjpbNTAzNzAxMzU1LC0xMTQ2Njg1NDk1LDk5NT
+AzNjk4MSwtMjYzOTk0MjcyXX0=
 -->
